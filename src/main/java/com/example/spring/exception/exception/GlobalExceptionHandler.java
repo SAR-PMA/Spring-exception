@@ -56,15 +56,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleResourceNotFound(ResourceNotFoundException ex) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", HttpStatus.NOT_FOUND.value());
-        body.put("error", "Resource Not Found");
-        body.put("message", ex.getMessage());  // This is your custom message
-        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
-    }
+//    @ExceptionHandler(ResourceNotFoundException.class)
+//    public ResponseEntity<Map<String, Object>> handleResourceNotFound(ResourceNotFoundException ex) {
+//        Map<String, Object> body = new HashMap<>();
+//        body.put("timestamp", LocalDateTime.now());
+//        body.put("status", HttpStatus.NOT_FOUND.value());
+//        body.put("error", "Resource Not Found");
+//        body.put("message", ex.getMessage());  // This is your custom message
+//        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+//    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorDetails> handleGenericException(Exception ex, HttpServletRequest request) {
